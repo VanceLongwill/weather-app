@@ -68,7 +68,7 @@ export class Search extends React.Component<ISearchProps, ISearchState> {
     const { query } = this.state
     if (query.length > 2) {
       jsonp(
-        `https://cors.io/?http://autocompletecity.geobytes.com/AutoCompleteCity?sort=size&template=<geobytes%20city>,%20<geobytes%20country>&q=${
+        `https://cors.io/?http://autocompletecity.geobytes.com/AutoCompleteCity?sort=size&template=<geobytes%20city>,%20<geobytes%20internet>&q=${
           this.state.query
         }`,
         undefined,

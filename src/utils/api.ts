@@ -5,10 +5,15 @@ import { IApiResponse, IForecast } from '../types'
 const API_KEY = 'a73e8c027d85e30aef330275e41149ce'
 const BASE_URL = 'https://api.openweathermap.org/data/2.5/forecast'
 
-export function getForecastByCity(name: string, countryCode: string = '') {
+export function getForecastByCity(name: string) {
+  const queryList = name.split(', ')
+  let query: string = name
+  if (queryList.length > 1) {
+    query = queryList[1] === 'UK' ? `${queryList[0]},GB` : queryList.join(',')
+  }
   const params = {
     appid: API_KEY,
-    q: countryCode ? `${name},${countryCode}` : name,
+    q: query,
     units: 'metric',
   }
   return axios.get<IApiResponse>(`${BASE_URL}`, { params })
