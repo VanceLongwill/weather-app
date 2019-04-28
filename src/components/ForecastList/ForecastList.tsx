@@ -60,7 +60,6 @@ const ForecastRow = styled.tr`
   td:first-child {
     width: 100px;
     text-align: left;
-    overflow: scroll;
   }
 `
 
